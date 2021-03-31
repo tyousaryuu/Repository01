@@ -1,0 +1,85 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.1.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.1.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.1.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-4.1.xsd 
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util.xsd">
+	<util:list id="cities">
+		<bean class="com.habuma.spel.cities.City" 
+			p:name="Chicago" p:state="IL" p:population="2853114"/>
+		<bean class="com.habuma.spel.cities.City" 
+			p:name="Atlanta" p:state="GA" p:population="537958"/>
+		<bean class="com.habuma.spel.cities.City" 
+			p:name="Dallas" p:state="TX" p:population="1279910"/>
+	</util:list>
+	<bean id="duke" class="com.springinaction.springidol.Juggler">
+		<constructor-arg value="#{cities[1].population}" />
+	</bean>
+	<util:properties id="settings" location="classpath:settings.properties"/>
+	<bean id="sonnet29" class="com.springinaction.springidol.Sonnet29" />
+	<bean id="poeticDuke" class="com.springinaction.springidol.PoeticJuggler">
+		<constructor-arg value="#{settings['number']}" />
+		<constructor-arg ref="sonnet29" />
+	</bean>
+	
+	
+	<bean id="staticFactory" class="com.springinaction.springidol.Stage" />
+	
+	<bean id="saxoPhone" class="com.springinaction.springidol.SaxoPhone" />
+	<bean id="piano" class="com.springinaction.springidol.Piano" />
+	<bean id="kenny" class="com.springinaction.springidol.Instrumentalist">
+		<property name="song" value="Jingle Bells" />
+		<property name="instrument" ref="piano" />
+	</bean>
+	
+	<bean id="hank_prop" class="com.springinaction.springidol.OneManBandProp">
+		<property name="instruments">
+			<props>
+				<prop key="JAVA_HOME">#{systemEnvironment['JAVA_HOME']}</prop>
+				<prop key="PINAO">#{systemProperties['java.runtime.name']}</prop>
+			</props>
+		</property>
+	</bean>
+		
+	<bean id="hank_list" class="com.springinaction.springidol.OneManBand">
+		<property name="instruments">
+			<list>
+				<ref bean="saxoPhone"/>
+				<ref bean="piano"/>
+				<ref bean="piano"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="hank_set" class="com.springinaction.springidol.OneManBand">
+		<property name="instruments">
+			<set>
+				<ref bean="saxoPhone"/>
+				<ref bean="piano"/>
+				<ref bean="piano"/>
+			</set>
+		</property>
+	</bean>
+	<bean id="hank_map" class="com.springinaction.springidol.OneManBandMap">
+		<property name="instruments">
+			<map>
+				<entry key="SAXOPHONE" value-ref="saxoPhone"/>
+				<entry key="PINAO" value="#{piano}"/>
+			</map>
+		</property>
+	</bean>
+	
+</beans>
