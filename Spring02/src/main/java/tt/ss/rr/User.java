@@ -11,7 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 public class User implements BeanNameAware,BeanFactoryAware,ApplicationContextAware {
-	private String name;
+	private String name;//
 	private List<String> list;
 	private Set<String> set;
 	public String getName() {
