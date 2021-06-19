@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript的数组长度是可变的</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr = [];
+		document.writeln("arr的数组长度是："+arr.length+"<br/>");
+		// 为arr数组的两个数组元素赋值
+		arr[2] = 6;
+		arr[4] = "孙悟空";
+
+		//再次访问数组的长度
+		document.writeln("arr的数组长度是："+arr.length+"<br/>");
+	</script>
+</body>
+</html>
