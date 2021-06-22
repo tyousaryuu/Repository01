@@ -12,7 +12,6 @@ public class ArrayTest0 {
 		pos[2] = b;
 		System.out.println(a);
 		Cat[] cats = new Cat[2];
-		
 		System.out.println(cats);
 		System.out.println(cats.toString());
 	}
