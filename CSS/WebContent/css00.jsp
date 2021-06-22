@@ -6,7 +6,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function load(){
-		/* location获取的是服务器端的相关信息，如果想获取客户端信息需要用request.getRemoteAddr() */
+		/* location获取的是服务器端的相关信息，如果想获取客户端信息需要用request.getRemoteAddr()  */
 		alert("location.host:"+location.host);// localhost:8080 主机名（ip）：端口号 192.168.0.105:8080
 		alert("location.hostname:"+location.hostname);// localhost 主机名 location.hostname:192.168.0.105
 		alert("location.protocol:"+location.protocol);// location.protocol:http:
