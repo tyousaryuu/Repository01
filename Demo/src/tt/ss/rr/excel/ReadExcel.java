@@ -11,7 +11,13 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
+/**
+ * Excel
+ * 
+ * @author Tyousaryuu
+ *
+ * 2021Äê6ÔÂ27ÈÕ
+ */
 public class ReadExcel {
 	private static final String EXCEL_XLS = "xls";
 	private static final String EXCEL_XLSX = "xlsx";
