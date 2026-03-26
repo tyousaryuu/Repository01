@@ -13,7 +13,7 @@ public class Demo01 {
     public static final String PASSWORD = "root";
     
 	public static void main(String[] args) throws Exception {
-        //1.加载驱动程序
+        //1.加载驱动程序123213
         Class.forName("com.mysql.jdbc.Driver");
         //2. 获得数据库连接
         Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
